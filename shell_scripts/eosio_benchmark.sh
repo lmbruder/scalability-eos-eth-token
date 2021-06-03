@@ -3,9 +3,9 @@
 txPerSec=10
 
 for rep in {1..10}
-    do
+do
     echo "Starting trial $rep with $txPerSec."
-    node eth.js 30 $txPerSec
+    node trial.js 30 $txPerSec
     echo "Sleeping for 5 minutes."
     sleep 5m
 done

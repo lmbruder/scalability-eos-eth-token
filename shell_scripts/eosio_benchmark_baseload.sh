@@ -20,15 +20,15 @@ do
     sleep 10s
 
     echo "Starting eos2 at time: $(date +%s)"
-    sshpass -p eos2 ssh -l eos2 192.168.122.93 "cd /home/eos2;  node tx.js" &
+    sshpass -p eos2 ssh -l eos2 192.168.122.93 "cd /home/eos2;  node baseload.js" &
     echo "Starting eos3 at time: $(date +%s)"
-    sshpass -p eos3 ssh -l eos3 192.168.122.29 "cd /home/eos3; node tx.js" &
+    sshpass -p eos3 ssh -l eos3 192.168.122.29 "cd /home/eos3; node baseload.js" &
     echo "Starting eos4 at time: $(date +%s)"
-    sshpass -p eos4 ssh -l eos4 192.168.122.148 "cd /home/eos4; node tx.js" &
+    sshpass -p eos4 ssh -l eos4 192.168.122.148 "cd /home/eos4; node baseload.js" &
 
     sleep 15s
 
-    node eos.js 30 $txPerSec 250
+    node trial.js 30 $txPerSec 250
 
     echo "Sleeping for 5 minutes."
     sleep 5m
