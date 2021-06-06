@@ -2,7 +2,7 @@
 
 ### Prerequisites to use the TypeScript and Shell scripts
 - `sudo apt install npm`
-- `sudo apt install node-typescript`
+- `sudo apt install node-typescript` (use the command `tsc` to convert TypeScript code to JavaScript code)
 - `npm i @types/node`
 #### Ethereum specific 
 - `npm install web3`
@@ -23,5 +23,3 @@
 #### EOSIO
 - replace values in the `Trial` constructor
 - replace values in `eosio_benchmark.sh` or `eosio_benchmark_baseload.sh` to fit your needs and setup
-
-- use the command `tsc` to convert TypeScript code to JavaScript code
