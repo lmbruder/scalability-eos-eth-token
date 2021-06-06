@@ -27,4 +27,4 @@
 ### Python visualisation
 - use the `.py` files or the `.ipynb` (Jupyter Notebook) files to visualise the results:
 
-base0.png![](https://user-images.githubusercontent.com/56868543/120935559-aa3ebe00-c703-11eb-9edb-f52643a43dfb.png)
+![](https://user-images.githubusercontent.com/56868543/120935559-aa3ebe00-c703-11eb-9edb-f52643a43dfb.png)
