@@ -54,19 +54,19 @@ def calculate_trial_means(folder):
 def results_individual_trial(current_path):
 
     # Submissions
-    submitEth = pd.read_json(path_or_buf=current_path + 'submits.json', convert_dates=False)
-    start_time = submitEth['timestamp'].values[0]
-    submitEth['timestamp'] = (submitEth['timestamp'] - start_time) / 1000
-    submitEth = submitEth.drop(columns = ['txHash'])
-    submitEth = submitEth.set_index('index')
+    submits = pd.read_json(path_or_buf=current_path + 'submits.json', convert_dates=False)
+    start_time = submits['timestamp'].values[0]
+    submits['timestamp'] = (submits['timestamp'] - start_time) / 1000
+    submits = submits.drop(columns = ['txHash'])
+    submits = submits.set_index('index')
     
     # Balance changes
-    balanceEth = pd.read_json(path_or_buf=current_path + 'balanceChanges.json', convert_dates=False)
-    balanceEth['timestamp'] = (balanceEth['timestamp'] - start_time) / 1000
-    balanceEth.loc[-1] = [0, balanceEth['timestamp'].values[0]]
-    balanceEth.shift(1)
-    balanceEth.sort_index(inplace=True) 
-    balanceEth = balanceEth.set_index('amount')
+    balance_change = pd.read_json(path_or_buf=current_path + 'balanceChanges.json', convert_dates=False)
+    balance_change['timestamp'] = (balance_change['timestamp'] - start_time) / 1000
+    balance_change.loc[-1] = [0, balance_change['timestamp'].values[0]]
+    balance_change.shift(1)
+    balance_change.sort_index(inplace=True) 
+    balance_change = balance_change.set_index('amount')
         
     # All blocks
     all_blocks = pd.read_json(path_or_buf=current_path + 'allTxBlocks.json', convert_dates=False)
@@ -109,12 +109,12 @@ global directory
 directory = "../results/ethereum/baseload_0/"
 files = os.listdir(directory)
 
-# dataframe with data for the mean results of one TPS value
+# dataframe with data for the mean results of one TPS value (based on balance changes)
 results_avg = pd.DataFrame(
     columns = ['mean_slope', 'mean_tx', 'mean_block_amount', 'mean_tx_per_block', 'trial_folder']
 )
 
-# dataframe with data for each individual trial
+# dataframe with data for each individual trial (based on balance changes)
 results_all_data_points = pd.DataFrame(columns = ['tx_per_sec', 'slope_diff', 'block_amount', 'mean_tx_per_block'])
 
 # goes through all subfolders and calculates mean values
