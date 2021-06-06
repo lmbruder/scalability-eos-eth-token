@@ -24,3 +24,4 @@
 - replace values in the `Trial` constructor
 - replace values in `eosio_benchmark.sh` or `eosio_benchmark_baseload.sh` to fit your needs and setup
 
+- use the command `tsc` to convert TypeScript code to JavaScript code
