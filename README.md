@@ -1,6 +1,6 @@
 # Comparing the scalability of non-native tokens on the Ethereum and EOSIO blockchain
 
-### Prerequisites to use the TypeScript and Shell scripts
+### Prerequisites to use the TypeScript and Shell scripts (based on an Ubuntu 20.04 setup)
 - `sudo apt install npm`
 - `sudo apt install node-typescript` (use the command `tsc` to convert TypeScript code to JavaScript code)
 - `npm i @types/node`
