@@ -408,6 +408,7 @@ class Trial {
       });
     };
 
+    // get all blocks that contain submitted transactions and add them to list if they have not been added
     var allTxBlocks: number[] = [];
     var i: number;
     for (i = 0; i < this.submits.length; i++) {
@@ -439,6 +440,7 @@ class Trial {
       submitTxHashes.push(submit.txHash);	
     });
 
+    // add blocks with cumulative amount of transactions to list
     var count: number = 0;
     var blockResults: blockResult[] = [];
     var relevant: boolean;
