@@ -15,8 +15,6 @@ do
     sshpass -p eos3 scp accounts.json eos3@192.168.122.29:/home/eos3
     sshpass -p eos4 scp accounts.json eos4@192.168.122.148:/home/eos4
 
-    cat accounts.json
-
     sleep 10s
 
     echo "Starting eos2 at time: $(date +%s)"

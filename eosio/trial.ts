@@ -123,9 +123,6 @@ class Trial {
 
   // write results to files in "results" folder
   async getResults() {
-    var blocks: block[] = [];
-    var allTxBlocks: number[] = [];
-
     console.log("Getting data results.")
 
     const newDir: string = `./results/sub${this.txPerSec}_dur${this.duration}_base${this.baseLoad}_${Date.now()}`;
@@ -138,6 +135,8 @@ class Trial {
       });
     };
 
+    var blocks: block[] = [];
+    var allTxBlocks: number[] = [];
     var i: number;
     for (i = 0; i < this.blocknumbers.length; i++) {
       var alreadyAdded = false;
@@ -163,7 +162,6 @@ class Trial {
       };
     };
 
-    // check for any transactions that have been lost and not added to blocks
     var submitTxHashes: string[] = [];
     this.submits.forEach(submit => {
       submitTxHashes.push(submit.txHash);

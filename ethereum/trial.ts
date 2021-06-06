@@ -396,9 +396,6 @@ class Trial {
 
   // write results to files in "results" folder
   async getResults() {
-    var submitTxHashes: string[] = [];
-    var allTxBlocks: number[] = [];
-
     console.log("Getting data results.")
 
     const newDir: string = `./results/sub${this.txPerSec}_dur${this.duration}_base${this.baseLoad}_${Date.now()}`;
@@ -411,6 +408,7 @@ class Trial {
       });
     };
 
+    var allTxBlocks: number[] = [];
     var i: number;
     for (i = 0; i < this.submits.length; i++) {
       const txHash = this.submits[i].txHash;
@@ -435,6 +433,11 @@ class Trial {
       timestamp: number;
       amountTx: number;
     }
+
+    var submitTxHashes: string[] = [];
+    this.submits.forEach(submit => {	
+      submitTxHashes.push(submit.txHash);	
+    });
 
     var count: number = 0;
     var blockResults: blockResult[] = [];
